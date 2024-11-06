@@ -9,10 +9,10 @@
 // (i.e. it could be in it's own file and not import GpioReal.h or GpioTest.h)
 void functionWhichAcceptsAnyGpio(GpioBase *gpio) {
     // Set the GPIO
-    GpioBase_set(gpio, 1);
+    gpio->set(gpio, 1);
 
     // Read back the GPIO
-    GpioBase_get(gpio);
+    gpio->get(gpio);
 }
 
 int main() {

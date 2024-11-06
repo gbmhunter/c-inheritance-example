@@ -7,7 +7,11 @@ uint8_t GpioTest_get(GpioBase *self);
 
 void GpioTest_init(GpioTest *self) {
     // Initialize the base class
-    GpioBase_Init(&self->base, GpioTest_set, GpioTest_get);
+    GpioBase_Init(&self->base);
+    // Override the set and get methods
+    self->base.set = GpioTest_set;
+    self->base.get = GpioTest_get;
+    // Initialize the test state
     self->state = 0;
     self->numSetCalls = 0;
     self->numGetCalls = 0;

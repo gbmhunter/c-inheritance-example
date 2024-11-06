@@ -6,19 +6,25 @@
 // Forward declaration of the GpioBase struct
 typedef struct GpioBase GpioBase;
 
-// Declare the set and get functions
-typedef void (*GpioBase_Set)(GpioBase *self, uint8_t value);
-typedef uint8_t (*GpioBase_Get)(GpioBase *self);
-
 struct GpioBase {
-    GpioBase_Set set;
-    GpioBase_Get get;
+    /**
+     * Set the GPIO to the given value.
+     * 
+     * @param self The GPIO instance.
+     * @param value The value to set the GPIO to.
+     */
+    void (*set)(GpioBase *self, uint8_t value);
+
+    /**
+     * Get the current value of the GPIO.
+     * 
+     * @param self The GPIO instance.
+     * @return The current value of the GPIO.
+     */
+    uint8_t (*get)(GpioBase *self);
 };
 
-void GpioBase_Init(
-    GpioBase *self,
-    GpioBase_Set set,
-    GpioBase_Get get);
+void GpioBase_Init(GpioBase *self);
 
 void GpioBase_set(GpioBase *self, uint8_t value);
 uint8_t GpioBase_get(GpioBase *self);

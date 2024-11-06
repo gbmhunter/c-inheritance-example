@@ -1,17 +1,24 @@
+#include <assert.h>
+#include <stdio.h>
+
 #include "GpioBase.h"
 
-void GpioBase_Init(
-    GpioBase *self,
-    void (*set)(GpioBase *self, uint8_t value),
-    uint8_t (*get)(GpioBase *self)) {
-    self->set = set;
-    self->get = get;
+// Private function declarations
+void GpioBase_set(GpioBase *self, uint8_t value);
+uint8_t GpioBase_get(GpioBase *self);
+
+void GpioBase_Init(GpioBase *self) {
+    self->set = GpioBase_set;
+    self->get = GpioBase_get;
 }
 
 void GpioBase_set(GpioBase *self, uint8_t value) {
-    self->set(self, value);
+    printf("GpioBase_set() called. This should never happen!\n");
+    assert(0);
 }
 
 uint8_t GpioBase_get(GpioBase *self) {
-    return self->get(self);
+    printf("GpioBase_get() called. This should never happen!\n");
+    assert(0);
+    return 0;
 }
