@@ -24,9 +24,11 @@ struct GpioBase {
     uint8_t (*get)(GpioBase *self);
 };
 
+/**
+ * Initialize the GPIO instance.
+ * 
+ * @param self The GPIO instance.
+ */
 void GpioBase_Init(GpioBase *self);
-
-void GpioBase_set(GpioBase *self, uint8_t value);
-uint8_t GpioBase_get(GpioBase *self);
 
 #endif // #ifndef GPIO_BASE_H

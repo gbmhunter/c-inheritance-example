@@ -5,11 +5,9 @@
 
 typedef struct {
     GpioBase base;
-    uint8_t state;
-    uint32_t numSetCalls;
-    uint32_t numGetCalls;
+    uint32_t pinNumber;
 } GpioReal;
 
-void GpioReal_init(GpioReal *self);
+void GpioReal_init(GpioReal *self, uint32_t pinNumber);
 
 #endif // #ifndef GPIO_REAL_H

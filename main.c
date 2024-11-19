@@ -1,7 +1,5 @@
-#include <assert.h>
-
 #include "GpioBase.h"
-#include "GpioTest.h"
+#include "GpioFake.h"
 #include "GpioReal.h"
 
 // This function accepts either a GpioReal or a GpioTest!
@@ -16,15 +14,15 @@ void functionWhichAcceptsAnyGpio(GpioBase *gpio) {
 }
 
 int main() {
-    // Create a instance of GpioReal
+    // Create a instance of GpioReal. 13 is the pin number.
     GpioReal gpioReal;
-    GpioReal_init(&gpioReal);
+    GpioReal_init(&gpioReal, 13);
     functionWhichAcceptsAnyGpio(&gpioReal.base);
 
-    // Create a instance of GpioTest
-    GpioTest gpioTest;
-    GpioTest_init(&gpioTest);
-    functionWhichAcceptsAnyGpio(&gpioTest.base);
+    // Create a instance of GpioFake
+    GpioFake gpioFake;
+    GpioFake_init(&gpioFake);
+    functionWhichAcceptsAnyGpio(&gpioFake.base);
 
     return 0;
 }

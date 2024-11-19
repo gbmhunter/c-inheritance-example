@@ -1,5 +1,5 @@
-#ifndef GPIO_TEST_H
-#define GPIO_TEST_H
+#ifndef GPIO_FAKE_H
+#define GPIO_FAKE_H
 
 #include "GpioBase.h"
 
@@ -8,8 +8,8 @@ typedef struct {
     uint8_t state;
     uint32_t numSetCalls;
     uint32_t numGetCalls;
-} GpioTest;
+} GpioFake;
 
-void GpioTest_init(GpioTest *self);
+void GpioFake_init(GpioFake *self);
 
-#endif // #ifndef GPIO_TEST_H
+#endif // #ifndef GPIO_FAKE_H
